@@ -59,7 +59,7 @@ async createUser(req, res) {
    async updateUser(req, res) {
     try {
       const user = await User.findOneAndUpdate(
-        { _id: req.params.uuserID }, 
+        { _id: req.params.userID }, 
         { username: req.body.username, email: req.body.email }, 
         { new: true }
       );
@@ -87,7 +87,7 @@ async createUser(req, res) {
         return res.status(404).json({ message: "No user with that ID" });
       }
 
-      res.json(friend)({message: 'Friend Added', user })
+      res.json({message: 'Friend Added', user })
     } catch (err) {
       res.status(500).json(err);
     }
@@ -106,7 +106,7 @@ async createUser(req, res) {
         return res.status(404).json({ message: "No user with that ID" });
       }
 
-      res.json(friend) ({ message: "Friend Deleted" });
+      res.json({ message: "Friend Deleted" , friend });
     } catch (err) {
       res.status(500).json(err);
     }

@@ -1,67 +1,27 @@
-const { Schema, model, Types } = require('mongoose');
+const router = require('express').Router();
+const {
+  getThoughts,
+  getSingleThought,
+  createThought,
+  updateThought,
+  deleteThought,
+  addReaction,
+  deleteReaction
+} = require('../../controllers/thoughtController');
 
-const reactionSchema = new Schema(
-  {
-    reactionId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
-    reactionBody: {
-      type: String,
-      required: true,
-      maxLength: 280,
-    },
-    username: {
-      type: String, 
-      required: true
-    },
-    createdAt: { 
-      type: Date, 
-      default: Date.now, 
-      get: (time) => new Date(time).toISOString() 
-    },
-  },
-  {
-    _id: false,
-  },
-);
+router.route('/')
+  .get(getThoughts)
+  .post(createThought);
 
+router.route('/:thoughtId')
+  .get(getSingleThought)
+  .put(updateThought)
+  .delete(deleteThought);
 
-const thoughtSchema = new Schema(
-  {
-    username: { 
-      type: String, 
-      required: true
-    }, 
-    thoughtText: { 
-      type: String, 
-      required: true, 
-      minLength: 1, 
-      maxLength: 280  
-    },
-    createdAt: { 
-      type: Date, 
-      default: Date.now, 
-      get: (time) => new Date(time).toISOString() 
-    },
-    reactions: [ reactionSchema ]
-  },
-  {
-    toJSON: {
-      virtuals: true,
-    },
-    id: false, 
-  }
-);
+router.route('/:thoughtId/reactions')
+  .post(addReaction);
 
+router.route('/:thoughtId/reactions/:reactionId')
+  .delete(deleteReaction);
 
-thoughtSchema
-  .virtual('reactionCount')
-  .get(function () {
-    return this.reactions.length;
-  });
-
-
-const Thought = model('thought', thoughtSchema);
-
-module.exports = Thought;
+module.exports = router;
