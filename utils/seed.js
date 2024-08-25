@@ -12,7 +12,7 @@ connection.once('open', async () => {
       await User.deleteMany({});
       await Thought.deleteMany({});
   
-      // Seed users with more diverse names
+      // Seed users 
       let users = await User.create([
         { username: 'AliceWonders', email: 'alice.wonders@example.com' },
         { username: 'BobTheBuilder', email: 'bob.builder@example.com' },
@@ -21,7 +21,7 @@ connection.once('open', async () => {
         { username: 'EveTheExplorer', email: 'eve.explorer@example.com' },
       ]);
 
-      // Seed thoughts with more engaging content and diverse reactions
+      // Seed thoughts 
       const thoughts = await Thought.create([
         { username: users[0]._id, thoughtText: 'Exploring the wonders of the universe!', reactions: [
           { reactionBody: 'Absolutely fascinating!', username: users[1].username },
