@@ -37,10 +37,12 @@
  
 
 ## Built With: 
+[![VS Code](https://img.shields.io/badge/IDE-VSCode-0000ff?style=plastic&logo=VisualStudioCode&logoWidth=10)](https://code.visualstudio.com/docs)
+[![JavaScript](https://img.shields.io/badge/Language-JavaScript-ff0000?style=plastic&logo=JavaScript&logoWidth=10)](https://javascript.info/)
+[![Express.js](https://img.shields.io/badge/Express.js-4.19.2-blue)](https://www.npmjs.com/package/express)
+[![Mongoose](https://img.shields.io/badge/Mongoose-8.5.3-red)](https://www.npmjs.com/package/mongoose)
+[![Nodemon](https://img.shields.io/badge/Nodemon-3.1.4-green)](https://www.npmjs.com/package/nodemon)
 
-  [![VS Code](https://img.shields.io/badge/IDE-VSCode-0000ff?style=plastic&logo=VisualStudioCode&logoWidth=10)](https://code.visualstudio.com/docs)
-  [![Javascript](https://img.shields.io/badge/Language-JavaScript-ff0000?style=plastic&logo=JavaScript&logoWidth=10)](https://javascript.info/)
-  [(https://img.shields.io/badge/Express.js-4.19.2-blue%20)](https://www.npmjs.com/package/express) [![Static Badge](https://img.shields.io/badge/Mongoose-8.5.3-red)](https://www.npmjs.com/package/mongoose) [![Static Badge](https://img.shields.io/badge/Nodemon-3.1.4-green)](https://www.npmjs.com/package/nodemon)
 
 ## Installation 
   
